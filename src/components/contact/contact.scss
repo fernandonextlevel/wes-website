@@ -1,0 +1,49 @@
+.contact {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.discord, .minds, .youtube {
+	background-size: cover;
+	height: 200px;
+	width: 200px;
+	&:hover {
+		margin-top: -5px;
+	}
+}
+
+.discord {
+	background: url('../../assets/imgs/discord.png') no-repeat center center;	
+}
+
+.minds {
+	background: url('../../assets/imgs/minds.png') no-repeat center center;
+}
+
+.youtube {
+	background: url('../../assets/imgs/youtube.png') no-repeat center center;
+}
+
+@media (max-width: 850px) {
+	.discord, .minds, .youtube {
+		height: 160px;
+		width: 160px;		
+	}	
+}
+
+@media (max-width: 768px) {
+	.contact {
+		display: block;
+		height: 600px;
+		width: 200px;
+		margin: 70px auto
+	}
+
+	.discord, .minds, .youtube {
+		height: 200px;
+		width: 200px;		
+	}	
+}

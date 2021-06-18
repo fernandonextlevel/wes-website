@@ -1,0 +1,19 @@
+<div class="container">
+	<!--Corner Buttons - Home -->
+	<button id="home" title="Home" class="animated button upper-left" (click)="openSection('expandHome', Home)" [ngClass]="{'white-bg' : secToggles.expandHome}"></button>
+	<!--Corner Buttons - Contact-->
+	<button id="contact" title="Contact" class="animated button upper-right" (click)="openSection('expandContact', Contact)" [ngClass]="{'white-bg' : secToggles.expandContact}"></button>
+	<!--Corner Buttons - Admin-->
+	<button id="admin" title="Admin" class="animated button lower-left" (click)="openSection('expandAdmin', Admin)" [ngClass]="{'white-bg' : secToggles.expandAdmin}"></button>
+	<!--Corner Buttons - Articles-->	
+	<button id="articles" title="Articles" class="animated button lower-right" (click)="openSection('expandArticles', Articles)" [ngClass]="{'white-bg' : secToggles.expandArticles}">
+	</button>
+	<!--Side Divs - Soundcloud-->
+	<div id="soundcloud" title="Soundcloud" class="animated button right-or-bottom" (click)="openSection('expandSoundcloud', Soundcloud)" [ngClass]="{'white-bg' : secToggles.expandSoundcloud}"></div>
+	<!--Side Divs - Twitch-->
+	<div id="twitch" title="Twitch" class="animated button left-or-top" (click)="openSection('expandTwitch', Twitch)" [ngClass]="{'white-bg' : secToggles.expandTwitch}"></div>
+	<!--Content Injection-->
+	<main>
+		<ng-container #content></ng-container>
+	</main>
+</div>

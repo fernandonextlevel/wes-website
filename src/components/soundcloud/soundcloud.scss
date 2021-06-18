@@ -1,0 +1,17 @@
+.soundcloud {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../../assets/imgs/soundcloud-inner.png') no-repeat center center;
+    &:hover {
+        background: url('../../assets/imgs/soundcloud-inner-spin.png') no-repeat center center;
+    }
+}
+
+@media (max-width: 768px) {
+    .soundcloud {    
+        height: calc(100vh - 200px);
+    }
+}

@@ -1,0 +1,38 @@
+<div [@AnimTrigger]="Animate" id="content">
+	<div class="top">
+		<a href="https://twitch.tv/wessek" target="_blank">https://twitch.tv/wessek</a>
+	</div>
+	<div class="twitch" id="schedule">
+		<ng-template #loading>
+			<p>Loading this month's calendar...</p>
+		</ng-template>
+		<div class="calendar-wrapper" *ngIf="events; else loading; let events" [ngSwitch]="view">			
+			<mwl-calendar-month-view
+				*ngSwitchCase="CalendarView.Month"
+				[viewDate]="viewDate"
+				[events]="events"
+				[refresh]="refresh"
+				[activeDayIsOpen]="activeDayIsOpen"
+				(dayClicked)="dayClicked($event.day)"
+				(eventClicked)="handleEvent('Clicked', $event.event)"
+				(eventTimesChanged)="eventTimesChanged($event)">
+			</mwl-calendar-month-view>
+			<mwl-calendar-week-view
+				*ngSwitchCase="CalendarView.Week"
+				[viewDate]="viewDate"
+				[events]="events"
+				[refresh]="refresh"
+				(eventClicked)="handleEvent('Clicked', $event.event)"
+				(eventTimesChanged)="eventTimesChanged($event)">
+			</mwl-calendar-week-view>
+			<mwl-calendar-day-view
+				*ngSwitchCase="CalendarView.Day"
+				[viewDate]="viewDate"
+				[events]="events"
+				[refresh]="refresh"
+				(eventClicked)="handleEvent('Clicked', $event.event)"
+				(eventTimesChanged)="eventTimesChanged($event)">
+			</mwl-calendar-day-view>
+		</div>
+	</div>
+</div>

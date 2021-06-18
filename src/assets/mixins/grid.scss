@@ -1,0 +1,19 @@
+/* GRID SYSTEM */
+/*
+How to Use:
+
+
+*/
+@mixin container($level, $columns, $rows) {
+	display: $level;
+	grid-template-columns: $columns;
+	grid-template-rows: $rows;
+}
+
+@mixin content($layer, $posx, $posy, $sizex, $sizey) {
+	z-index: $layer;
+	grid-column-start: $posx;
+	grid-column-end: $posx + $sizex;
+	grid-row-start: $posy;	
+	grid-row-end: $posy + $sizey;
+}

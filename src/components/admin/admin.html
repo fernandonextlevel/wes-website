@@ -1,0 +1,29 @@
+<ng-template #showLogin>
+	<div class="login">
+		<button class="button btn btn-login" (click)="login()"></button>
+	</div>
+</ng-template>
+<div *ngIf="userInfo; else showLogin">
+	<button class="button btn" (click)="addEvent()">Add new</button>
+	<button class="button btn" (click)="logout()">Logout</button>
+	<div class="event-list" *ngIf="events$ | async; let events">
+		<ul>
+			<li>
+				<p>Title</p>
+				<p>Color</p>
+				<p>Start</p>
+				<p>End</p>
+			</li>
+		</ul>
+		<ul>
+			<li *ngFor="let event of events;">
+				<input type="text" #newtitle [(ngModel)]='event.payload.val().title'>
+				<input type="text" #newcolor [(ngModel)]="event.payload.val().color">
+				<input type="datetime-local" #newstart [(ngModel)]="event.payload.val().start">
+				<input type="datetime-local" #newend [(ngModel)]="event.payload.val().end">			
+				<button class="button btn" (click)="updateEvent(event.key, newtitle.value, newstart.value, newend.value, newcolor.value)">Update</button>
+				<button class="button btn" (click)="delEvent(event.key)">Delete</button>				
+			</li>
+		</ul>
+	</div>
+</div>
